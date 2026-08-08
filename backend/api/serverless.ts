@@ -1,8 +1,8 @@
 import * as dotenv from 'dotenv';
-dotenv.config({ path: __dirname + '/../backend/.env' });
+dotenv.config({ path: __dirname + '/../.env' });
 
 import { FastifyReply, FastifyRequest } from 'fastify';
-import { buildApp } from '../backend/src/app';
+import { buildApp } from '../src/app';
 
 // Vercel serverless function entrypoint
 let app: any;
