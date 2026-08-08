@@ -17,8 +17,8 @@ export default function LandingPage() {
       {/* Nav */}
       <nav className="flex items-center justify-between max-w-6xl mx-auto px-6 py-6">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-primary-600 flex items-center justify-center">
-            <Zap className="w-5 h-5 text-white" />
+          <div className="w-9 h-9 rounded-xl overflow-hidden flex items-center justify-center">
+            <img src="/logo.png" alt="HumanAPI Logo" className="w-full h-full object-cover" />
           </div>
           <span className="text-xl font-bold text-text-primary">HumanAPI</span>
         </div>

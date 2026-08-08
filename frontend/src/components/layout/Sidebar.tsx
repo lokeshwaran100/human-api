@@ -25,8 +25,8 @@ export default function Sidebar() {
     <aside className="bg-gradient-sidebar w-64 min-h-screen flex flex-col py-6 px-4 shrink-0">
       {/* Logo */}
       <NavLink to="/dashboard" className="flex items-center gap-3 px-3 mb-8">
-        <div className="w-9 h-9 rounded-xl bg-primary-600 flex items-center justify-center">
-          <Zap className="w-5 h-5 text-white" />
+        <div className="w-9 h-9 rounded-xl overflow-hidden flex items-center justify-center">
+          <img src="/logo.png" alt="HumanAPI Logo" className="w-full h-full object-cover" />
         </div>
         <div>
           <h1 className="text-lg font-bold text-text-primary leading-tight">HumanAPI</h1>
