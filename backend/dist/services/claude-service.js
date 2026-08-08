@@ -19,7 +19,7 @@ function getClient() {
     }
     return anthropic;
 }
-const MODEL = 'claude-sonnet-4-20250514';
+const MODEL = 'claude-sonnet-4-6';
 // -----------------------------------------------------------
 // Decision Reasoning — PRD §51
 // -----------------------------------------------------------
