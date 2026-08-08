@@ -120,11 +120,14 @@ export default function TravelAgentDemo() {
     setPhase('searching');
     setResults([]);
 
+    let resolvedAgentId = agentId;
+
     // Check if any agents exist
     try {
       const agents = await api.getAgents();
       const activeAgent = agents.find((a: any) => a.status === 'ACTIVE');
       if (activeAgent) {
+        resolvedAgentId = activeAgent.id;
         setAgentId(activeAgent.id);
       } else {
         // Auto-register a demo travel agent
@@ -133,11 +136,13 @@ export default function TravelAgentDemo() {
           description: 'Finds and evaluates flights',
           capabilities: ['flight_purchase'],
         });
-        setAgentId(res.agent_id);
+        resolvedAgentId = res.id || res.agent_id; // Check both in case of API response shape
+        setAgentId(resolvedAgentId);
       }
     } catch {
-      // If API not connected, use a placeholder
-      setAgentId('demo-agent');
+      // If API not connected, use a placeholder UUID (might still fail FK, but prevents syntax error)
+      resolvedAgentId = '00000000-0000-0000-0000-000000000000';
+      setAgentId(resolvedAgentId);
     }
 
     // Simulate search delay
@@ -161,7 +166,7 @@ export default function TravelAgentDemo() {
       try {
         const result = await api.submitDecision({
           request_id: requestId,
-          agent_id: agentId || 'demo-agent',
+          agent_id: resolvedAgentId,
           decision_type: 'flight_purchase',
           payload: {
             origin: flight.origin,
