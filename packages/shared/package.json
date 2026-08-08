@@ -1,0 +1,14 @@
+{
+  "name": "@humanapi/shared",
+  "version": "1.0.0",
+  "private": true,
+  "main": "dist/types.js",
+  "types": "dist/types.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.0"
+  }
+}

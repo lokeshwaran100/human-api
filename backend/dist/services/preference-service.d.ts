@@ -1,0 +1,11 @@
+import { Preference, PreferenceSource, PreferenceStatus, PreferenceVersion, PreferenceSuggestion, SuggestionStatus } from '@humanapi/shared';
+export declare function getUserPreferences(userId: string, category?: string, status?: PreferenceStatus): Promise<Preference[]>;
+export declare function getPreference(id: string): Promise<Preference | null>;
+export declare function createPreference(userId: string, category: string, key: string, value: any, source: PreferenceSource, confidence?: number, importance?: string, status?: PreferenceStatus): Promise<Preference>;
+export declare function updatePreference(id: string, updates: Partial<Pick<Preference, 'value' | 'source' | 'confidence' | 'importance' | 'status'>>): Promise<Preference>;
+export declare function archivePreference(id: string): Promise<void>;
+export declare function deletePreference(id: string): Promise<void>;
+export declare function getPreferenceHistory(preferenceId: string): Promise<PreferenceVersion[]>;
+export declare function createSuggestion(userId: string, category: string, key: string, proposedValue: any, reason: string, confidence: number, source: PreferenceSource): Promise<PreferenceSuggestion>;
+export declare function getPendingSuggestions(userId: string): Promise<PreferenceSuggestion[]>;
+export declare function resolveSuggestion(id: string, status: SuggestionStatus): Promise<void>;
